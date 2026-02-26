@@ -17,11 +17,6 @@ import {
     SemaphorePolicyFactory__factory
 } from "../../typechain-types"
 
-/// Encodes the prover address and group ID into a single bigint value.
-function generateScope(prover: string, groupId: number): bigint {
-    return (ethers.toBigInt(prover) << 96n) | ethers.toBigInt(groupId)
-}
-
 /* eslint-disable @typescript-eslint/no-shadow */
 describe("Semaphore", () => {
     describe("Checker", () => {
@@ -37,32 +32,32 @@ describe("Semaphore", () => {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 0n,
-                message: 0n,
-                scope: generateScope(subjectAddress, validGroupId),
+                message: ethers.toBigInt(subjectAddress),
+                scope: BigInt(validGroupId),
                 points: [0n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
             const invalidProverProof = {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 0n,
-                message: 0n,
-                scope: generateScope(notSubjectAddress, validGroupId),
+                message: ethers.toBigInt(notSubjectAddress),
+                scope: BigInt(validGroupId),
                 points: [0n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
             const invalidGroupIdProof = {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 0n,
-                message: 0n,
-                scope: generateScope(subjectAddress, invalidGroupId),
+                message: ethers.toBigInt(subjectAddress),
+                scope: BigInt(invalidGroupId),
                 points: [0n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
             const invalidProof = {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 1n,
-                message: 0n,
-                scope: generateScope(subjectAddress, validGroupId),
+                message: ethers.toBigInt(subjectAddress),
+                scope: BigInt(validGroupId),
                 points: [1n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
 
@@ -239,32 +234,32 @@ describe("Semaphore", () => {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 0n,
-                message: 0n,
-                scope: generateScope(subjectAddress, validGroupId),
+                message: ethers.toBigInt(subjectAddress),
+                scope: BigInt(validGroupId),
                 points: [0n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
             const invalidProverProof = {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 0n,
-                message: 0n,
-                scope: generateScope(notSubjectAddress, validGroupId),
+                message: ethers.toBigInt(notSubjectAddress),
+                scope: BigInt(validGroupId),
                 points: [0n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
             const invalidGroupIdProof = {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 0n,
-                message: 0n,
-                scope: generateScope(subjectAddress, invalidGroupId),
+                message: ethers.toBigInt(subjectAddress),
+                scope: BigInt(invalidGroupId),
                 points: [0n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
             const invalidProof = {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 1n,
-                message: 0n,
-                scope: generateScope(subjectAddress, validGroupId),
+                message: ethers.toBigInt(subjectAddress),
+                scope: BigInt(validGroupId),
                 points: [1n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
 
@@ -574,8 +569,8 @@ describe("Semaphore", () => {
                 merkleTreeDepth: 1n,
                 merkleTreeRoot: 0n,
                 nullifier: 0n,
-                message: 0n,
-                scope: generateScope(deployerAddress, validGroupId),
+                message: ethers.toBigInt(deployerAddress),
+                scope: BigInt(validGroupId),
                 points: [0n, 0n, 0n, 0n, 0n, 0n, 0n, 0n]
             }
 

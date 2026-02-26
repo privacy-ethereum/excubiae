@@ -8,6 +8,8 @@ import {ISemaphore} from "./ISemaphore.sol";
 /// @notice Implements proof of membership validation using Semaphore.
 /// @dev Inherits from BaseChecker to extend the validation logic.
 /// Ensures unique identity usage through nullifier tracking.
+/// This is because we store the nullifier which is
+/// hash(secret, groupId). The prover address is bound in the proof message field.
 contract SemaphoreChecker is BaseChecker {
     /// @notice Address of the Semaphore contract used for proof verification.
     ISemaphore public semaphore;
@@ -43,18 +45,15 @@ contract SemaphoreChecker is BaseChecker {
 
         ISemaphore.SemaphoreProof memory proof = abi.decode(evidence, (ISemaphore.SemaphoreProof));
 
-        // The proof scope encodes both the subject address and group ID to prevent front-running attacks.
+        // The proof scope is the group ID; the prover address is bound in the message field.
         uint256 _scope = proof.scope;
 
-        // Extract the subject's address (first 20 bytes, 160 bits) from the scope.
-        address _prover = address(uint160(_scope >> 96));
-
-        // Extract the group ID (remaining 12 bytes, 96 bits) from the scope.
-        uint96 _groupId = uint96(_scope & ((1 << 96) - 1));
-
-        if (_groupId != groupId) {
+        if (_scope != groupId) {
             revert InvalidGroup();
         }
+
+        // Extract the subject's address from the message field.
+        address _prover = address(uint160(proof.message));
 
         if (_prover != subject) {
             revert InvalidProver();

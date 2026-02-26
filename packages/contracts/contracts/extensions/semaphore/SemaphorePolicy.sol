@@ -7,9 +7,9 @@ import {ISemaphore} from "./ISemaphore.sol";
 /// @title SemaphorePolicy
 /// @notice A policy contract enforcing semaphore validation.
 /// Only if they can prove they are part of a semaphore group.
-/// @dev Please note that once a identity is used to enforce, it cannot be used again.
+/// @dev Please note that once an identity is used to enforce, it cannot be used again.
 /// This is because we store the nullifier which is
-/// hash(secret, groupId)
+/// hash(secret, groupId). The prover address is bound in the proof message field.
 contract SemaphorePolicy is BasePolicy {
     /// @notice The enforced identities
     mapping(uint256 => bool) public spentNullifiers;

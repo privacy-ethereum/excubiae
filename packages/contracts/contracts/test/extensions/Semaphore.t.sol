@@ -30,8 +30,8 @@ contract SemaphoreCheckerTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 0,
-            message: 0,
-            scope: ((uint256(uint160(subject)) << 96) | uint256(validGroupId)),
+            message: uint256(uint160(subject)),
+            scope: validGroupId,
             points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -40,8 +40,8 @@ contract SemaphoreCheckerTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 0,
-            message: 0,
-            scope: ((uint256(uint160(notSubject)) << 96) | uint256(validGroupId)),
+            message: uint256(uint160(notSubject)),
+            scope: validGroupId,
             points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -50,8 +50,8 @@ contract SemaphoreCheckerTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 0,
-            message: 0,
-            scope: ((uint256(uint160(subject)) << 96) | uint256(invalidGroupId)),
+            message: uint256(uint160(subject)),
+            scope: invalidGroupId,
             points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -60,8 +60,8 @@ contract SemaphoreCheckerTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 1,
-            message: 0,
-            scope: ((uint256(uint160(subject)) << 96) | uint256(validGroupId)),
+            message: uint256(uint160(subject)),
+            scope: validGroupId,
             points: [uint256(1), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -169,8 +169,8 @@ contract SemaphorePolicyTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 0,
-            message: 0,
-            scope: ((uint256(uint160(subject)) << 96) | uint256(validGroupId)),
+            message: uint256(uint160(subject)),
+            scope: validGroupId,
             points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -179,8 +179,8 @@ contract SemaphorePolicyTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 0,
-            message: 0,
-            scope: ((uint256(uint160(notSubject)) << 96) | uint256(validGroupId)),
+            message: uint256(uint160(notSubject)),
+            scope: validGroupId,
             points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -189,8 +189,8 @@ contract SemaphorePolicyTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 0,
-            message: 0,
-            scope: ((uint256(uint160(subject)) << 96) | uint256(invalidGroupId)),
+            message: uint256(uint160(subject)),
+            scope: invalidGroupId,
             points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -199,8 +199,8 @@ contract SemaphorePolicyTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 1,
-            message: 0,
-            scope: ((uint256(uint160(subject)) << 96) | uint256(validGroupId)),
+            message: uint256(uint160(subject)),
+            scope: validGroupId,
             points: [uint256(1), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
@@ -425,8 +425,8 @@ contract SemaphoreMockTest is Test {
             merkleTreeDepth: 1,
             merkleTreeRoot: 0,
             nullifier: 0,
-            message: 0,
-            scope: ((uint256(uint160(deployer)) << 96) | uint256(validGroupId)),
+            message: uint256(uint160(deployer)),
+            scope: validGroupId,
             points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
         });
 
