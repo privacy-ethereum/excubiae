@@ -7,8 +7,8 @@ import {BasePolicy} from "../../policy/BasePolicy.sol";
 /// @notice A policy contract enforcing EAS validation.
 /// Only if they've received an attestation of a specific schema from a trusted attester
 contract EASPolicy is BasePolicy {
-    // a mapping of attestations that have already enforced
-    mapping(bytes32 => bool) public enforcedAttestations;
+    // a mapping of addresses that have already been enforced
+    mapping(address => bool) public enforcedAddresses;
 
     /// @notice Deploy an instance of EASPolicy
     // solhint-disable-next-line no-empty-blocks
@@ -17,16 +17,13 @@ contract EASPolicy is BasePolicy {
     /// @notice Enforce a user based on their attestation
     /// @dev Throw if the attestation is not valid or just complete silently
     /// @param subject The user's Ethereum address.
-    /// @param evidence The ABI-encoded schemaId as a uint256.
+    /// @param evidence The ABI-encoded schemaId as a uint256. It is passed directly to the BasePolicy._enforce.
     function _enforce(address subject, bytes calldata evidence) internal override {
-        // decode the argument
-        bytes32 attestationId = abi.decode(evidence, (bytes32));
-
-        if (enforcedAttestations[attestationId]) {
+        if (enforcedAddresses[subject]) {
             revert AlreadyEnforced();
         }
 
-        enforcedAttestations[attestationId] = true;
+        enforcedAddresses[subject] = true;
 
         super._enforce(subject, evidence);
     }

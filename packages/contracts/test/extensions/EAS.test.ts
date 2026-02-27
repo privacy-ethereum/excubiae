@@ -27,6 +27,7 @@ describe("EAS", () => {
     const invalidAttesterAttestation = "0x0000000000000000000000000000000000000000000000000000000000000004"
     // valid attestation
     const attestation = "0x0000000000000000000000000000000000000000000000000000000000000000"
+    const anotherAttestation = "0x0000000000000000000000000000000000000000000000000000000000000005"
 
     before(async () => {
         ;[deployer, subject, target, notSubject] = await ethers.getSigners()
@@ -129,8 +130,15 @@ describe("EAS", () => {
             expect(receipt?.status).to.eq(1)
         })
 
-        it("should prevent enforcing twice", async () => {
+        it("should prevent enforcing twice with same subject and same attestation", async () => {
             await expect(policy.connect(target).enforce(subject, attestation)).to.be.revertedWithCustomError(
+                policy,
+                "AlreadyEnforced"
+            )
+        })
+
+        it("should prevent enforcing twice with same subject and different attestation", async () => {
+            await expect(policy.connect(target).enforce(subject, anotherAttestation)).to.be.revertedWithCustomError(
                 policy,
                 "AlreadyEnforced"
             )
