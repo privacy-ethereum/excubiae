@@ -25,9 +25,10 @@ describe("EAS", () => {
     const invalidSchemaAttestation = "0x0000000000000000000000000000000000000000000000000000000000000002"
     const invalidRecipientAttestation = "0x0000000000000000000000000000000000000000000000000000000000000003"
     const invalidAttesterAttestation = "0x0000000000000000000000000000000000000000000000000000000000000004"
+    const expiredAttestation = "0x0000000000000000000000000000000000000000000000000000000000000005"
     // valid attestation
     const attestation = "0x0000000000000000000000000000000000000000000000000000000000000000"
-    const anotherAttestation = "0x0000000000000000000000000000000000000000000000000000000000000005"
+    const anotherAttestation = "0x0000000000000000000000000000000000000000000000000000000000000006"
 
     before(async () => {
         ;[deployer, subject, target, notSubject] = await ethers.getSigners()
@@ -120,6 +121,13 @@ describe("EAS", () => {
             await expect(
                 policy.connect(target).enforce(subject, invalidAttesterAttestation)
             ).to.be.revertedWithCustomError(checker, "AttesterNotTrusted")
+        })
+
+        it("should throw when the attestation is expired", async () => {
+            await expect(policy.connect(target).enforce(subject, expiredAttestation)).to.be.revertedWithCustomError(
+                checker,
+                "AttestationExpired"
+            )
         })
 
         it("should enforce a user if the function is called with the valid data", async () => {
