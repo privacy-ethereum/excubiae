@@ -79,5 +79,11 @@ describe("FreeForAll", () => {
 
             expect(receipt?.status).to.eq(1)
         })
+
+        it("should prevent enforcing the same account twice", async () => {
+            await expect(
+                policy.connect(target).enforce(subject, AbiCoder.defaultAbiCoder().encode([], []))
+            ).to.be.revertedWithCustomError(policy, "AlreadyEnforced")
+        })
     })
 })
