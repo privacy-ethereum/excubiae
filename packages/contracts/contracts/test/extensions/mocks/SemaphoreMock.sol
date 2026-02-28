@@ -31,8 +31,8 @@ contract SemaphoreMock is ISemaphore {
         }
     }
 
-    function verifyProof(uint256 scope, SemaphoreProof calldata proof) external view returns (bool) {
-        return mockedGroups[scope] && mockedProofs[proof.nullifier];
+    function verifyProof(uint256 groupId, SemaphoreProof calldata proof) external view returns (bool) {
+        return mockedGroups[groupId] && mockedProofs[proof.nullifier];
     }
 
     /// @notice Stub functions required to comply with the ISemaphore interface.
