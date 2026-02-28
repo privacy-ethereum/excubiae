@@ -22,6 +22,7 @@ contract EASChecker is BaseChecker {
     error AttesterNotTrusted();
     error NotYourAttestation();
     error InvalidSchema();
+    error AttestationExpired(uint256 expirationTime);
 
     /// @notice Initializes the contract.
     function _initialize() internal override {
@@ -66,6 +67,11 @@ contract EASChecker is BaseChecker {
         // one cannot enforce an attestation for another user
         if (attestation.recipient != subject) {
             revert NotYourAttestation();
+        }
+
+        // the attestation must not be expired
+        if (attestation.expirationTime > 0 && attestation.expirationTime <= block.timestamp) {
+            revert AttestationExpired(attestation.expirationTime);
         }
 
         return true;
