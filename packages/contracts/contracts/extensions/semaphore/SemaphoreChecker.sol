@@ -59,7 +59,7 @@ contract SemaphoreChecker is BaseChecker {
             revert InvalidProver();
         }
 
-        if (!semaphore.verifyProof(_scope, proof)) {
+        if (!semaphore.verifyProof(groupId, proof)) {
             revert InvalidProof();
         }
 
