@@ -2,12 +2,13 @@
 pragma solidity ^0.8.20;
 
 import {Factory} from "../../proxy/Factory.sol";
+import {IPolicyFactory} from "../../interfaces/IPolicyFactory.sol";
 import {ERC20Policy} from "./ERC20Policy.sol";
 
 /// @title ERC20PolicyFactory
 /// @notice Factory contract for deploying minimal proxy instances of ERC20Policy.
 /// @dev Simplifies deployment of ERC20Policy clones with appended configuration data.
-contract ERC20PolicyFactory is Factory {
+contract ERC20PolicyFactory is Factory, IPolicyFactory {
     /// @notice Initializes the factory with the ERC20Policy implementation.
     constructor() Factory(address(new ERC20Policy())) {}
 

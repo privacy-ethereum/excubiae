@@ -2,12 +2,13 @@
 pragma solidity ^0.8.20;
 
 import {Factory} from "../../proxy/Factory.sol";
+import {IPolicyFactory} from "../../interfaces/IPolicyFactory.sol";
 import {MerkleProofPolicy} from "./MerkleProofPolicy.sol";
 
 /// @title MerkleProofPolicyFactory
 /// @notice Factory contract for deploying minimal proxy instances of MerkleProofPolicy.
 /// @dev Simplifies deployment of MerkleProofPolicy clones with appended configuration data.
-contract MerkleProofPolicyFactory is Factory {
+contract MerkleProofPolicyFactory is Factory, IPolicyFactory {
     /// @notice Initializes the factory with the MerkleProofPolicy implementation.
     constructor() Factory(address(new MerkleProofPolicy())) {}
 

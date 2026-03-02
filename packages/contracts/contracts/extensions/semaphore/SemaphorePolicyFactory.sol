@@ -2,12 +2,13 @@
 pragma solidity ^0.8.20;
 
 import {Factory} from "../../proxy/Factory.sol";
+import {IPolicyFactory} from "../../interfaces/IPolicyFactory.sol";
 import {SemaphorePolicy} from "./SemaphorePolicy.sol";
 
 /// @title SemaphorePolicyFactory
 /// @notice Factory contract for deploying minimal proxy instances of SemaphorePolicy.
 /// @dev Simplifies deployment of SemaphorePolicy clones with appended configuration data.
-contract SemaphorePolicyFactory is Factory {
+contract SemaphorePolicyFactory is Factory, IPolicyFactory {
     /// @notice Initializes the factory with the SemaphorePolicy implementation.
     constructor() Factory(address(new SemaphorePolicy())) {}
 
