@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseChecker} from "../../checker/BaseChecker.sol";
-import {IGitcoinPassportDecoder} from "./IGitcoinPassportDecoder.sol";
+import { BaseChecker } from "../../checker/BaseChecker.sol";
+import { IGitcoinPassportDecoder } from "./IGitcoinPassportDecoder.sol";
 
 /// @title GitcoinPassportChecker
 /// @notice GitcoinPassport validator.

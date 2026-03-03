@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseChecker} from "../../checker/BaseChecker.sol";
+import { BaseChecker } from "../../checker/BaseChecker.sol";
 
 /// @title FreeForAllChecker
 /// @notice Free for all validator.

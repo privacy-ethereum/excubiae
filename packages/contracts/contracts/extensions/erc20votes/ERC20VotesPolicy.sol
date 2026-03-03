@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
 
 /// @title ERC20VotesPolicy
 /// @notice A policy which allows anyone with a token balance > 0
@@ -12,7 +12,7 @@ contract ERC20VotesPolicy is BasePolicy {
 
     /// @notice Create a new instance of ERC20VotesPolicy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforce a user based on their token balance
     /// @dev Throw if the token balance is not valid or just complete silently

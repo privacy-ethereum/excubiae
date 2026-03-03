@@ -1,21 +1,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Test, Vm} from "forge-std/src/Test.sol";
-import {NFT} from "./utils/NFT.sol";
-import {BaseERC721Checker} from "./base/BaseERC721Checker.sol";
-import {AdvancedERC721Checker} from "./advanced/AdvancedERC721Checker.sol";
-import {BaseERC721CheckerFactory} from "./base/BaseERC721CheckerFactory.sol";
-import {AdvancedERC721CheckerFactory} from "./advanced/AdvancedERC721CheckerFactory.sol";
-import {AdvancedERC721Policy} from "./advanced/AdvancedERC721Policy.sol";
-import {AdvancedERC721PolicyFactory} from "./advanced/AdvancedERC721PolicyFactory.sol";
-import {AdvancedVoting} from "./advanced/AdvancedVoting.sol";
-import {IPolicy} from "../../interfaces/IPolicy.sol";
-import {IERC721Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {Check} from "../../interfaces/IAdvancedChecker.sol";
-import {IClone} from "../../interfaces/IClone.sol";
-import {IAdvancedPolicy} from "../../interfaces/IAdvancedPolicy.sol";
+import { Test, Vm } from "forge-std/src/Test.sol";
+import { NFT } from "./utils/NFT.sol";
+import { BaseERC721Checker } from "./base/BaseERC721Checker.sol";
+import { AdvancedERC721Checker } from "./advanced/AdvancedERC721Checker.sol";
+import { BaseERC721CheckerFactory } from "./base/BaseERC721CheckerFactory.sol";
+import { AdvancedERC721CheckerFactory } from "./advanced/AdvancedERC721CheckerFactory.sol";
+import { AdvancedERC721Policy } from "./advanced/AdvancedERC721Policy.sol";
+import { AdvancedERC721PolicyFactory } from "./advanced/AdvancedERC721PolicyFactory.sol";
+import { AdvancedVoting } from "./advanced/AdvancedVoting.sol";
+import { IPolicy } from "../../interfaces/IPolicy.sol";
+import { IERC721Errors } from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
+import { Check } from "../../interfaces/IAdvancedChecker.sol";
+import { IClone } from "../../interfaces/IClone.sol";
+import { IAdvancedPolicy } from "../../interfaces/IAdvancedPolicy.sol";
 
 contract AdvancedChecker is Test {
     event CloneDeployed(address indexed clone);

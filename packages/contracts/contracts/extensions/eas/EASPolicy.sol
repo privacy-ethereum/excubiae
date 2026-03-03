@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
 
 /// @title EASPolicy
 /// @notice A policy contract enforcing EAS validation.
@@ -12,7 +12,7 @@ contract EASPolicy is BasePolicy {
 
     /// @notice Deploy an instance of EASPolicy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforce a user based on their attestation
     /// @dev Throw if the attestation is not valid or just complete silently

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IBaseChecker} from "../interfaces/IBaseChecker.sol";
-import {Clone} from "../proxy/Clone.sol";
+import { IBaseChecker } from "../interfaces/IBaseChecker.sol";
+import { Clone } from "../proxy/Clone.sol";
 
 /// @title BaseChecker
 /// @notice Abstract base contract for implementing validation checks.
@@ -24,5 +24,5 @@ abstract contract BaseChecker is Clone, IBaseChecker {
     /// @param subject The address to validate.
     /// @param evidence Custom validation data.
     /// @return checked Boolean indicating whether the validation passed.
-    function _check(address subject, bytes calldata evidence) internal view virtual returns (bool checked) {}
+    function _check(address subject, bytes calldata evidence) internal view virtual returns (bool checked) { }
 }

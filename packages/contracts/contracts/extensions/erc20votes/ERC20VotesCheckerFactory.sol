@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Factory} from "../../proxy/Factory.sol";
-import {ERC20VotesChecker} from "./ERC20VotesChecker.sol";
+import { Factory } from "../../proxy/Factory.sol";
+import { ERC20VotesChecker } from "./ERC20VotesChecker.sol";
 
 /// @title ERC20VotesCheckerFactory
 /// @notice Factory contract for deploying minimal proxy instances of ERC20VotesChecker.
 /// @dev Simplifies deployment of ERC20VotesChecker clones with appended configuration data.
 contract ERC20VotesCheckerFactory is Factory {
     /// @notice Initializes the factory with the ERC20VotesChecker implementation.
-    constructor() Factory(address(new ERC20VotesChecker())) {}
+    constructor() Factory(address(new ERC20VotesChecker())) { }
 
     /// @notice Deploys a new ERC20VotesChecker clone.
     /// @return clone The address of the newly deployed ERC20VotesChecker clone.

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Factory} from "../../proxy/Factory.sol";
-import {TokenChecker} from "./TokenChecker.sol";
+import { Factory } from "../../proxy/Factory.sol";
+import { TokenChecker } from "./TokenChecker.sol";
 
 /// @title TokenCheckerFactory
 /// @notice Factory contract for deploying minimal proxy instances of TokenChecker.
@@ -10,7 +10,7 @@ import {TokenChecker} from "./TokenChecker.sol";
 contract TokenCheckerFactory is Factory {
     /// @notice Initializes the factory with the TokenChecker implementation.
     /// @dev The constructor sets the TokenChecker contract as the implementation for cloning.
-    constructor() Factory(address(new TokenChecker())) {}
+    constructor() Factory(address(new TokenChecker())) { }
 
     /// @notice Deploys a new TokenChecker clone with the specified ERC721 token contract.
     /// @dev Encodes the ERC721 token contract address as initialization data for the clone.

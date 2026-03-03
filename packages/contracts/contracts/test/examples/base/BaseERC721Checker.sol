@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseChecker} from "../../../checker/BaseChecker.sol";
-import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import { BaseChecker } from "../../../checker/BaseChecker.sol";
+import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 /// @title BaseERC721Checker
 /// @notice ERC721 token ownership validator.

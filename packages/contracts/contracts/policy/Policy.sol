@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {IPolicy} from "../interfaces/IPolicy.sol";
-import {Clone} from "../proxy/Clone.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
+import { IPolicy } from "../interfaces/IPolicy.sol";
+import { Clone } from "../proxy/Clone.sol";
 
 /// @title Policy
 /// @notice Abstract base contract for implementing policies to enforce access control.

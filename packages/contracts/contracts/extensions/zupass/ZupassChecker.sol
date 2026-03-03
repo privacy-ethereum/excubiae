@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseChecker} from "../../checker/BaseChecker.sol";
-import {ZupassGroth16Verifier} from "./ZupassGroth16Verifier.sol";
+import { BaseChecker } from "../../checker/BaseChecker.sol";
+import { ZupassGroth16Verifier } from "./ZupassGroth16Verifier.sol";
 
 /// @title ZupassChecker
 /// @notice Zupass validator.
@@ -31,10 +31,8 @@ contract ZupassChecker is BaseChecker {
         super._initialize();
 
         bytes memory data = _getAppendedBytes();
-        (uint256 eventId, uint256 signer1, uint256 signer2, address verifierAddress) = abi.decode(
-            data,
-            (uint256, uint256, uint256, address)
-        );
+        (uint256 eventId, uint256 signer1, uint256 signer2, address verifierAddress) =
+            abi.decode(data, (uint256, uint256, uint256, address));
 
         validEventId = eventId;
         validSigner1 = signer1;
@@ -50,8 +48,8 @@ contract ZupassChecker is BaseChecker {
         super._check(subject, evidence);
 
         // Decode the given _data bytes
-        (uint256[2] memory pA, uint256[2][2] memory pB, uint256[2] memory pC, uint256[38] memory pubSignals) = abi
-            .decode(evidence, (uint256[2], uint256[2][2], uint256[2], uint256[38]));
+        (uint256[2] memory pA, uint256[2][2] memory pB, uint256[2] memory pC, uint256[38] memory pubSignals) =
+            abi.decode(evidence, (uint256[2], uint256[2][2], uint256[2], uint256[38]));
 
         // Event id is stored at index 1
         if (pubSignals[1] != validEventId) {

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
-import {ISemaphore} from "./ISemaphore.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
+import { ISemaphore } from "./ISemaphore.sol";
 
 /// @title SemaphorePolicy
 /// @notice A policy contract enforcing semaphore validation.
@@ -16,7 +16,7 @@ contract SemaphorePolicy is BasePolicy {
 
     /// @notice Create a new instance of the Policy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforce an user if they can prove they belong to a semaphore group
     /// @dev Throw if the proof is not valid or just complete silently

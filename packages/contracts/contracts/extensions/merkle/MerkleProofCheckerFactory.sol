@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Factory} from "../../proxy/Factory.sol";
-import {MerkleProofChecker} from "./MerkleProofChecker.sol";
+import { Factory } from "../../proxy/Factory.sol";
+import { MerkleProofChecker } from "./MerkleProofChecker.sol";
 
 /// @title MerkleProofCheckerFactory
 /// @notice Factory contract for deploying minimal proxy instances of MerkleProofChecker.
 /// @dev Simplifies deployment of MerkleProofChecker clones with appended configuration data.
 contract MerkleProofCheckerFactory is Factory {
     /// @notice Initializes the factory with the MerkleProofChecker implementation.
-    constructor() Factory(address(new MerkleProofChecker())) {}
+    constructor() Factory(address(new MerkleProofChecker())) { }
 
     /// @notice Deploys a new MerkleProofChecker clone.
     /// @param root The tree root

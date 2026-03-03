@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IPolicy} from "./IPolicy.sol";
+import { IPolicy } from "./IPolicy.sol";
 
 /// @title IBasePolicy
 /// @notice Extends IPolicy with basic validation and enforcement capabilities.

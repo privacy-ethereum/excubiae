@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
 
 /// @title TokenPolicy
 /// @notice This contract allows to enforce users by token ownership
@@ -14,7 +14,7 @@ contract TokenPolicy is BasePolicy {
 
     /// @notice creates a new TokenPolicy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforces the user if they own the token with the token ID encoded in
     /// _data. Throws if the user does not own the token or if the token has

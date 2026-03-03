@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseChecker} from "../../checker/BaseChecker.sol";
-import {ISemaphore} from "./ISemaphore.sol";
+import { BaseChecker } from "../../checker/BaseChecker.sol";
+import { ISemaphore } from "./ISemaphore.sol";
 
 /// @title SemaphoreChecker
 /// @notice Implements proof of membership validation using Semaphore.

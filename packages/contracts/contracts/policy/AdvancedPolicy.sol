@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IAdvancedPolicy, Check} from "../interfaces/IAdvancedPolicy.sol";
-import {AdvancedChecker} from "../checker/AdvancedChecker.sol";
-import {Policy} from "./Policy.sol";
+import { IAdvancedPolicy, Check } from "../interfaces/IAdvancedPolicy.sol";
+import { AdvancedChecker } from "../checker/AdvancedChecker.sol";
+import { Policy } from "./Policy.sol";
 
 /// @title AdvancedPolicy
 /// @notice Implements multi-stage policy checks with pre, main, and post validation stages.
@@ -24,10 +24,8 @@ abstract contract AdvancedPolicy is IAdvancedPolicy, Policy {
         super._initialize();
 
         bytes memory data = _getAppendedBytes();
-        (address sender, address advCheckerAddr, bool skipPre, bool skipPost) = abi.decode(
-            data,
-            (address, address, bool, bool)
-        );
+        (address sender, address advCheckerAddr, bool skipPre, bool skipPost) =
+            abi.decode(data, (address, address, bool, bool));
 
         _transferOwnership(sender);
 

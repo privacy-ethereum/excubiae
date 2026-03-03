@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IVotes} from "@openzeppelin/contracts/governance/utils/IVotes.sol";
+import { IVotes } from "@openzeppelin/contracts/governance/utils/IVotes.sol";
 
-import {BaseChecker} from "../../checker/BaseChecker.sol";
+import { BaseChecker } from "../../checker/BaseChecker.sol";
 
 /// @title ERC20VotesChecker
 /// @notice ERC20Votes validator.

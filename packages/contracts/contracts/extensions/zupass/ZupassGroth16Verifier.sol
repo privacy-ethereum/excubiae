@@ -264,7 +264,11 @@ contract ZupassGroth16Verifier {
         uint256[2][2] calldata _pB,
         uint256[2] calldata _pC,
         uint256[38] calldata _pubSignals
-    ) public view returns (bool) {
+    )
+        public
+        view
+        returns (bool)
+    {
         assembly {
             function checkField(v) {
                 if iszero(lt(v, q)) {

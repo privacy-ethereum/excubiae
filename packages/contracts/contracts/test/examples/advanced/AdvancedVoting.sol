@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {AdvancedPolicy} from "../../../policy/AdvancedPolicy.sol";
-import {Check} from "../../../interfaces/IAdvancedPolicy.sol";
+import { AdvancedPolicy } from "../../../policy/AdvancedPolicy.sol";
+import { Check } from "../../../interfaces/IAdvancedPolicy.sol";
 
 /// @title AdvancedVoting
 /// @notice Multi-phase governance system with NFT-based validation.

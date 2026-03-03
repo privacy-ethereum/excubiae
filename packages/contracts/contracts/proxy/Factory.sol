@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {LibClone} from "solady/src/utils/LibClone.sol";
-import {IFactory} from "../interfaces/IFactory.sol";
+import { LibClone } from "solady/src/utils/LibClone.sol";
+import { IFactory } from "../interfaces/IFactory.sol";
 
 /// @title Factory
 /// @notice Abstract base contract for deploying clone contracts.
