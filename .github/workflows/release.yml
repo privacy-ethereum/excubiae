@@ -28,12 +28,6 @@ jobs:
             - name: Install Foundry
               uses: foundry-rs/foundry-toolchain@v1
 
-            - name: Authentication
-              run: |
-                  echo npmAuthToken: "$NODE_AUTH_TOKEN" >> ./.yarnrc.yml
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
             - name: Install dependencies
               run: yarn
 
@@ -42,8 +36,6 @@ jobs:
 
             - name: Publish packages
               run: yarn version:publish
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - run: yarn version:release
               env:
