@@ -53,7 +53,6 @@
         "lint": "eslint . && yarn workspace @excubiae/contracts lint",
         "lint:fix": "eslint . --fix && yarn workspace @excubiae/contracts lint:fix",
         "version:bump": "ts-node scripts/version.ts ${0}",
-        "version:publish": "ts-node scripts/publish.ts",
         "version:release": "changelogithub",
         "clean": "ts-node scripts/clean-packages.ts && rimraf node_modules coverage",
         "remove:stable-version-field": "ts-node scripts/remove-stable-version-field.ts && yarn format:write",

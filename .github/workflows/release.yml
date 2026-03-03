@@ -35,7 +35,7 @@ jobs:
               run: yarn build:packages
 
             - name: Publish packages
-              run: yarn version:publish
+              run: yarn workspaces foreach -A --no-private npm publish --tolerate-republish --access public
 
             - run: yarn version:release
               env:
