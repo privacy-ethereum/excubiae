@@ -81,6 +81,21 @@ contract MockEAS is IEAS {
                     revocable: false,
                     data: ""
                 });
+            // expired attestation
+        } else if (attestationId == 0x0000000000000000000000000000000000000000000000000000000000000005) {
+            return
+                Attestation({
+                    uid: "0x000000000000000000000000000001",
+                    schema: schema,
+                    time: 0,
+                    expirationTime: 1,
+                    revocationTime: 0,
+                    refUID: "0x000000000000000000000000000001",
+                    recipient: recipient,
+                    attester: attester,
+                    revocable: false,
+                    data: ""
+                });
             // valid
         } else {
             return
