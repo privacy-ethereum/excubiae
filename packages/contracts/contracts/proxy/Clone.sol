@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IClone} from "../interfaces/IClone.sol";
-import {LibClone} from "solady/src/utils/LibClone.sol";
+import { IClone } from "../interfaces/IClone.sol";
+import { LibClone } from "solady/src/utils/LibClone.sol";
 
 /// @title Clone
 /// @notice Abstract base contract for creating cloneable contracts with initialization logic.

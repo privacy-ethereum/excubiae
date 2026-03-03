@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseChecker} from "../../checker/BaseChecker.sol";
-import {IAnonAadhaar} from "./IAnonAadhaar.sol";
+import { BaseChecker } from "../../checker/BaseChecker.sol";
+import { IAnonAadhaar } from "./IAnonAadhaar.sol";
 
 /// @title AnonAadhaarChecker
 /// @notice AnonAadhaar validator.
@@ -58,16 +58,9 @@ contract AnonAadhaarChecker is BaseChecker {
         }
 
         // check if the proof validates
-        if (
-            !anonAadhaarContract.verifyAnonAadhaarProof(
-                providedNullifierSeed,
-                nullifier,
-                timestamp,
-                signal,
-                revealArray,
-                groth16Proof
-            )
-        ) {
+        if (!anonAadhaarContract.verifyAnonAadhaarProof(
+                providedNullifierSeed, nullifier, timestamp, signal, revealArray, groth16Proof
+            )) {
             revert InvalidProof();
         }
 

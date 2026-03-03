@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
 
 /// @title FreeForAllPolicy
 /// @notice A policy which allows anyone to sign up, but only once per address.
@@ -11,7 +11,7 @@ contract FreeForAllPolicy is BasePolicy {
 
     /// @notice Create a new instance of FreeForAllPolicy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforce a user so they can only be enforced once
     /// @param subject The user's Ethereum address.

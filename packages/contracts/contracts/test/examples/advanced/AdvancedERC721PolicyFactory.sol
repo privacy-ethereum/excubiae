@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {AdvancedERC721Policy} from "./AdvancedERC721Policy.sol";
-import {Factory} from "../../../proxy/Factory.sol";
+import { AdvancedERC721Policy } from "./AdvancedERC721Policy.sol";
+import { Factory } from "../../../proxy/Factory.sol";
 
 /// @title AdvancedERC721PolicyFactory
 /// @notice Factory for deploying minimal proxy instances of AdvancedERC721Policy.
 /// @dev Encodes configuration data for multi-phase policy validation.
 contract AdvancedERC721PolicyFactory is Factory {
     /// @notice Initializes the factory with the AdvancedERC721Policy implementation.
-    constructor() Factory(address(new AdvancedERC721Policy())) {}
+    constructor() Factory(address(new AdvancedERC721Policy())) { }
 
     /// @notice Deploys a new AdvancedERC721Policy clone.
     /// @param _checkerAddr Address of the associated checker contract.

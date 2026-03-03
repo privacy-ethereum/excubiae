@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BasePolicy} from "../../../policy/BasePolicy.sol";
+import { BasePolicy } from "../../../policy/BasePolicy.sol";
 
 /// @title BaseERC721Policy
 /// @notice Policy contract enforcing NFT-based validation.

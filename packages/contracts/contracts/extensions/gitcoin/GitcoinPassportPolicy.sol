@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
-import {IGitcoinPassportDecoder} from "./IGitcoinPassportDecoder.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
+import { IGitcoinPassportDecoder } from "./IGitcoinPassportDecoder.sol";
 
 /// @title GitcoinPassportPolicy
 /// @notice A policy contract enforcing gitcoin validation.
@@ -13,7 +13,7 @@ contract GitcoinPassportPolicy is BasePolicy {
 
     /// @notice Deploy an instance of GitcoinPassportPolicy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforce a user based on their attestation
     /// @dev Throw if the attestation is not valid or just complete silently

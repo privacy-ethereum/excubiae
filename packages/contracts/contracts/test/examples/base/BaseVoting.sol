@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseERC721Policy} from "./BaseERC721Policy.sol";
+import { BaseERC721Policy } from "./BaseERC721Policy.sol";
 
 /// @title BaseVoting
 /// @notice Simple NFT-based voting system.

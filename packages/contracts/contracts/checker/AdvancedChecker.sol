@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IAdvancedChecker, Check, CheckStatus} from "../interfaces/IAdvancedChecker.sol";
-import {Clone} from "../proxy/Clone.sol";
+import { IAdvancedChecker, Check, CheckStatus } from "../interfaces/IAdvancedChecker.sol";
+import { Clone } from "../proxy/Clone.sol";
 
 /// @title AdvancedChecker
 /// @notice Abstract contract for multi-phase validation (PRE, MAIN, POST).
@@ -19,7 +19,12 @@ abstract contract AdvancedChecker is Clone, IAdvancedChecker {
         address subject,
         bytes calldata evidence,
         Check checkType
-    ) external view override returns (bool checked) {
+    )
+        external
+        view
+        override
+        returns (bool checked)
+    {
         return _check(subject, evidence, checkType);
     }
 
@@ -46,19 +51,19 @@ abstract contract AdvancedChecker is Clone, IAdvancedChecker {
     /// @param subject The address to validate.
     /// @param evidence Custom validation data.
     /// @return checked Boolean indicating whether the validation passed.
-    function _checkPre(address subject, bytes calldata evidence) internal view virtual returns (bool checked) {}
+    function _checkPre(address subject, bytes calldata evidence) internal view virtual returns (bool checked) { }
 
     /// @notice Main validation logic.
     /// @dev Derived contracts should override this to implement main check validation.
     /// @param subject The address to validate.
     /// @param evidence Custom validation data.
     /// @return checked Boolean indicating whether the validation passed.
-    function _checkMain(address subject, bytes calldata evidence) internal view virtual returns (bool checked) {}
+    function _checkMain(address subject, bytes calldata evidence) internal view virtual returns (bool checked) { }
 
     /// @notice Post-condition validation logic.
     /// @dev Derived contracts should override this to implement post-check validation.
     /// @param subject The address to validate.
     /// @param evidence Custom validation data.
     /// @return checked Boolean indicating whether the validation passed.
-    function _checkPost(address subject, bytes calldata evidence) internal view virtual returns (bool checked) {}
+    function _checkPost(address subject, bytes calldata evidence) internal view virtual returns (bool checked) { }
 }

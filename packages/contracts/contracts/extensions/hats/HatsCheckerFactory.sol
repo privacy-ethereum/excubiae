@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Factory} from "../../proxy/Factory.sol";
-import {HatsChecker} from "./HatsChecker.sol";
+import { Factory } from "../../proxy/Factory.sol";
+import { HatsChecker } from "./HatsChecker.sol";
 
 /// @title HatsCheckerFactory
 /// @notice Factory contract for deploying minimal proxy instances of HatsChecker.
 /// @dev Simplifies deployment of HatsChecker clones with appended configuration data.
 contract HatsCheckerFactory is Factory {
     /// @notice Initializes the factory with the HatsChecker implementation.
-    constructor() Factory(address(new HatsChecker())) {}
+    constructor() Factory(address(new HatsChecker())) { }
 
     /// @notice Deploys a new HatsChecker clone.
     /// @param hats The Hats Protocol contract

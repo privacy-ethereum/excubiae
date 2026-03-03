@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {MerkleProof} from "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+import { MerkleProof } from "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
 
 /// @title MerkleProofPolicy
 /// @notice A policy contract enforcing merkle proof validation.
@@ -14,7 +14,7 @@ contract MerkleProofPolicy is BasePolicy {
 
     /// @notice Deploy an instance of MerkleProofPolicy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforce an user based on being part of the tree
     /// @dev Throw if the proof is not valid or the user has already been enforced

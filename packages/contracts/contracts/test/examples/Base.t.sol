@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Test, Vm} from "forge-std/src/Test.sol";
-import {NFT} from "./utils/NFT.sol";
-import {BaseERC721Checker} from "./base/BaseERC721Checker.sol";
-import {BaseERC721CheckerFactory} from "./base/BaseERC721CheckerFactory.sol";
-import {BaseERC721PolicyFactory} from "./base/BaseERC721PolicyFactory.sol";
-import {BaseERC721Policy} from "./base/BaseERC721Policy.sol";
-import {BaseVoting} from "./base/BaseVoting.sol";
-import {IPolicy} from "../../interfaces/IPolicy.sol";
-import {IClone} from "../../interfaces/IClone.sol";
-import {IERC721Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import { Test, Vm } from "forge-std/src/Test.sol";
+import { NFT } from "./utils/NFT.sol";
+import { BaseERC721Checker } from "./base/BaseERC721Checker.sol";
+import { BaseERC721CheckerFactory } from "./base/BaseERC721CheckerFactory.sol";
+import { BaseERC721PolicyFactory } from "./base/BaseERC721PolicyFactory.sol";
+import { BaseERC721Policy } from "./base/BaseERC721Policy.sol";
+import { BaseVoting } from "./base/BaseVoting.sol";
+import { IPolicy } from "../../interfaces/IPolicy.sol";
+import { IClone } from "../../interfaces/IClone.sol";
+import { IERC721Errors } from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract BaseChecker is Test {
     NFT internal nft;

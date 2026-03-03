@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Test, Vm} from "forge-std/src/Test.sol";
-import {SemaphoreChecker} from "../../extensions/semaphore/SemaphoreChecker.sol";
-import {SemaphoreCheckerFactory} from "../../extensions/semaphore/SemaphoreCheckerFactory.sol";
-import {SemaphorePolicy} from "../../extensions/semaphore/SemaphorePolicy.sol";
-import {SemaphorePolicyFactory} from "../../extensions/semaphore/SemaphorePolicyFactory.sol";
-import {IPolicy} from "../../interfaces/IPolicy.sol";
-import {IClone} from "../../interfaces/IClone.sol";
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
-import {SemaphoreMock} from "./mocks/SemaphoreMock.sol";
-import {BaseCheckerMock} from "./mocks/BaseCheckerMock.sol";
+import { Test, Vm } from "forge-std/src/Test.sol";
+import { SemaphoreChecker } from "../../extensions/semaphore/SemaphoreChecker.sol";
+import { SemaphoreCheckerFactory } from "../../extensions/semaphore/SemaphoreCheckerFactory.sol";
+import { SemaphorePolicy } from "../../extensions/semaphore/SemaphorePolicy.sol";
+import { SemaphorePolicyFactory } from "../../extensions/semaphore/SemaphorePolicyFactory.sol";
+import { IPolicy } from "../../interfaces/IPolicy.sol";
+import { IClone } from "../../interfaces/IClone.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
+import { ISemaphore } from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
+import { SemaphoreMock } from "./mocks/SemaphoreMock.sol";
+import { BaseCheckerMock } from "./mocks/BaseCheckerMock.sol";
 
 contract SemaphoreCheckerTest is Test {
     SemaphoreMock internal semaphoreMock;
@@ -25,45 +25,41 @@ contract SemaphoreCheckerTest is Test {
     uint256 public validGroupId = 0;
     uint256 public invalidGroupId = 1;
 
-    ISemaphore.SemaphoreProof public validProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 0,
-            message: uint256(uint160(subject)),
-            scope: validGroupId,
-            points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public validProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 0,
+        message: uint256(uint160(subject)),
+        scope: validGroupId,
+        points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
-    ISemaphore.SemaphoreProof public invalidProverProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 0,
-            message: uint256(uint160(notSubject)),
-            scope: validGroupId,
-            points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public invalidProverProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 0,
+        message: uint256(uint160(notSubject)),
+        scope: validGroupId,
+        points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
-    ISemaphore.SemaphoreProof public invalidGroupIdProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 0,
-            message: uint256(uint160(subject)),
-            scope: invalidGroupId,
-            points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public invalidGroupIdProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 0,
+        message: uint256(uint160(subject)),
+        scope: invalidGroupId,
+        points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
-    ISemaphore.SemaphoreProof public invalidProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 1,
-            message: uint256(uint160(subject)),
-            scope: validGroupId,
-            points: [uint256(1), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public invalidProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 1,
+        message: uint256(uint160(subject)),
+        scope: validGroupId,
+        points: [uint256(1), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
     bytes public validEvidence = abi.encode(validProof);
     bytes public invalidProverEvidence = abi.encode(invalidProverProof);
@@ -164,45 +160,41 @@ contract SemaphorePolicyTest is Test {
     uint256 public validGroupId = 0;
     uint256 public invalidGroupId = 1;
 
-    ISemaphore.SemaphoreProof public validProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 0,
-            message: uint256(uint160(subject)),
-            scope: validGroupId,
-            points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public validProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 0,
+        message: uint256(uint160(subject)),
+        scope: validGroupId,
+        points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
-    ISemaphore.SemaphoreProof public invalidProverProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 0,
-            message: uint256(uint160(notSubject)),
-            scope: validGroupId,
-            points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public invalidProverProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 0,
+        message: uint256(uint160(notSubject)),
+        scope: validGroupId,
+        points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
-    ISemaphore.SemaphoreProof public invalidGroupIdProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 0,
-            message: uint256(uint160(subject)),
-            scope: invalidGroupId,
-            points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public invalidGroupIdProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 0,
+        message: uint256(uint160(subject)),
+        scope: invalidGroupId,
+        points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
-    ISemaphore.SemaphoreProof public invalidProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 1,
-            message: uint256(uint160(subject)),
-            scope: validGroupId,
-            points: [uint256(1), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public invalidProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 1,
+        message: uint256(uint160(subject)),
+        scope: validGroupId,
+        points: [uint256(1), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
     bytes public validEvidence = abi.encode(validProof);
     bytes public invalidProverEvidence = abi.encode(invalidProverProof);
@@ -420,15 +412,14 @@ contract SemaphoreMockTest is Test {
     address public deployer = vm.addr(0x1);
     uint256 public validGroupId = 0;
 
-    ISemaphore.SemaphoreProof public validProof =
-        ISemaphore.SemaphoreProof({
-            merkleTreeDepth: 1,
-            merkleTreeRoot: 0,
-            nullifier: 0,
-            message: uint256(uint160(deployer)),
-            scope: validGroupId,
-            points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
-        });
+    ISemaphore.SemaphoreProof public validProof = ISemaphore.SemaphoreProof({
+        merkleTreeDepth: 1,
+        merkleTreeRoot: 0,
+        nullifier: 0,
+        message: uint256(uint160(deployer)),
+        scope: validGroupId,
+        points: [uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0), uint256(0)]
+    });
 
     function setUp() public {
         vm.startPrank(deployer);

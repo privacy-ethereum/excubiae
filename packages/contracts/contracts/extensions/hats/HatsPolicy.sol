@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BasePolicy} from "../../policy/BasePolicy.sol";
-import {IHats} from "./IHats.sol";
+import { BasePolicy } from "../../policy/BasePolicy.sol";
+import { IHats } from "./IHats.sol";
 
 /// @title HatsPolicy
 /// @notice A policy contract enforcing Hats validation.
@@ -13,7 +13,7 @@ contract HatsPolicy is BasePolicy {
 
     /// @notice Deploy an instance of HatsPolicy
     // solhint-disable-next-line no-empty-blocks
-    constructor() payable {}
+    constructor() payable { }
 
     /// @notice Enforces the user
     /// @param subject The address of the user

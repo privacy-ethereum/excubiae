@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {IPolicy} from "./IPolicy.sol";
-import {Check} from "./IAdvancedChecker.sol";
+import { IPolicy } from "./IPolicy.sol";
+import { Check } from "./IAdvancedChecker.sol";
 
 /// @title IAdvancedPolicy
 /// @notice Extends IPolicy with support for multi-phase validation checks (pre, main, post).

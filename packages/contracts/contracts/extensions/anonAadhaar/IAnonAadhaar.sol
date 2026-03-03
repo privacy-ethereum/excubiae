@@ -9,5 +9,8 @@ interface IAnonAadhaar {
         uint256 signal,
         uint256[4] memory revealArray,
         uint256[8] memory groth16Proof
-    ) external view returns (bool);
+    )
+        external
+        view
+        returns (bool);
 }

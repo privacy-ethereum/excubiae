@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {BaseChecker} from "../../checker/BaseChecker.sol";
-import {IHats} from "./IHats.sol";
+import { BaseChecker } from "../../checker/BaseChecker.sol";
+import { IHats } from "./IHats.sol";
 
 /// @title HatsChecker
 /// @notice Hats validator.

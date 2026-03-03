@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {Factory} from "../../proxy/Factory.sol";
-import {SemaphoreChecker} from "./SemaphoreChecker.sol";
+import { Factory } from "../../proxy/Factory.sol";
+import { SemaphoreChecker } from "./SemaphoreChecker.sol";
 
 /// @title SemaphoreCheckerFactory
 /// @notice Factory contract for deploying minimal proxy instances of SemaphoreChecker.
@@ -10,7 +10,7 @@ import {SemaphoreChecker} from "./SemaphoreChecker.sol";
 contract SemaphoreCheckerFactory is Factory {
     /// @notice Initializes the factory with the SemaphoreChecker implementation.
     /// @dev The constructor sets the SemaphoreChecker contract as the implementation for cloning.
-    constructor() Factory(address(new SemaphoreChecker())) {}
+    constructor() Factory(address(new SemaphoreChecker())) { }
 
     /// @notice Deploys a new SemaphoreChecker clone with the specified Semaphore contract and group ID.
     /// @dev Encodes the Semaphore contract address and group ID as initialization data for the clone.

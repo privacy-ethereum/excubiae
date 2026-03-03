@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import {ISemaphore} from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
+import { ISemaphore } from "@semaphore-protocol/contracts/interfaces/ISemaphore.sol";
 
 /// @title SemaphoreMock
 /// @notice Mock implementation of the ISemaphore interface for testing purposes.
@@ -48,19 +48,19 @@ contract SemaphoreMock is ISemaphore {
         return 0;
     }
 
-    function updateGroupAdmin(uint256, address) external override {}
+    function updateGroupAdmin(uint256, address) external override { }
 
-    function acceptGroupAdmin(uint256) external override {}
+    function acceptGroupAdmin(uint256) external override { }
 
-    function updateGroupMerkleTreeDuration(uint256, uint256) external override {}
+    function updateGroupMerkleTreeDuration(uint256, uint256) external override { }
 
-    function addMember(uint256, uint256) external override {}
+    function addMember(uint256, uint256) external override { }
 
-    function addMembers(uint256, uint256[] calldata) external override {}
+    function addMembers(uint256, uint256[] calldata) external override { }
 
-    function updateMember(uint256, uint256, uint256, uint256[] calldata) external override {}
+    function updateMember(uint256, uint256, uint256, uint256[] calldata) external override { }
 
-    function removeMember(uint256, uint256, uint256[] calldata) external override {}
+    function removeMember(uint256, uint256, uint256[] calldata) external override { }
 
-    function validateProof(uint256, SemaphoreProof calldata) external override {}
+    function validateProof(uint256, SemaphoreProof calldata) external override { }
 }

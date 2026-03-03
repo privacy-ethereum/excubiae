@@ -35,7 +35,9 @@ interface IHats {
         address toggle,
         bool isMutable,
         string calldata imageURI
-    ) external returns (uint256);
+    )
+        external
+        returns (uint256);
 
     /// @notice Mints an ERC1155-similar token of the Hat to an eligible recipient, who then "wears" the hat
     /// @dev The msg.sender must wear an admin Hat of `_hatId`, and the recipient must be eligible to wear `_hatId`
