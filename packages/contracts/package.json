@@ -1,7 +1,7 @@
 {
     "name": "@excubiae/contracts",
     "description": "Excubiae contracts.",
-    "version": "0.13.0",
+    "version": "0.12.0",
     "license": "MIT",
     "main": "./build/ts/index.js",
     "types": "./build/ts/index.d.ts",
